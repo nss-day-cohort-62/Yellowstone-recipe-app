@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Recipe } from "./Recipe"; // Do we need .js
+
 // TODO: This component should show a list of all recipes and
 // include a select element to filter recipes by category
 
@@ -40,23 +42,17 @@ export const Recipes = () => {
         {/* TODO: Display the filteredRecipes */}
         <ol>
           {recipes.map((recipe) => (
-            <li>
-              <img src={recipe.imageUrl} alt={recipe.name} />
-              <div>{recipe.name}</div>
-              <div>{recipe.recipeText}</div>
-            </li>
+            <>
+              <Recipe
+                key={recipe.id}
+                id={recipe.id}
+                name={recipe.name}
+                imgUrl={recipe.imageUrl}
+                recText={recipe.recipeText}
+              />
+            </>
           ))}
         </ol>
-        {recipes.map((recipe) => (
-          <>
-            <div></div>
-            <div></div>
-          </>
-        ))}
-        {recipes.map((recipe) => {
-          //can do stuff above the return
-          return <div></div>;
-        })}
       </div>
     </>
   );
